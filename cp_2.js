@@ -51,3 +51,12 @@ function displayProducts(products) {
     container.appendChild(productDiv)
   })
 }
+
+// A reuseable error function to log 
+function handleError(error) {
+  console.error("An Errored has occured: ", error.message)
+}
+
+// Fetching the Products
+fetchProductsThen();
+fetchProductsAsync();
