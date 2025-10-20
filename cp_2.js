@@ -30,3 +30,24 @@ async function fetchProductsAsync() {
     handleError(error)
   }
 }
+
+// Displays the products with in the dashboard created 
+function displayProducts(products) {
+  const container = document.getElementById("product-container")
+  container.innerHTML = ""; // clears all of the previous products
+
+  // Show only the first 5 products within the data
+  products.slice(0, 5).forEach(product => {
+    const { name, price, image } = product.fields
+    const productDiv = document.createElement("div")
+    productDiv.classList.add("product-card")
+
+    //showcases the photo with the name pf product and price
+    productDiv.innerHTML = `
+      <img src="${image[0].url}" alt="${name}">
+      <h3>${name}</h3>
+      <p>$${(price / 100).toFixed(2)}</p>`
+
+    container.appendChild(productDiv)
+  })
+}
